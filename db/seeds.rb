@@ -18,7 +18,7 @@ http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
 
 request = Net::HTTP::Get.new(url)
-request["x-rapidapi-key"] = 'ab9e763436msh152baaf820e0f8dp1a5c72jsn948a11546fe0'
+request["x-rapidapi-key"] = ENV["rapidapi-key"]
 request["x-rapidapi-host"] = 'moviesdatabase.p.rapidapi.com'
 
 response = http.request(request)
@@ -41,3 +41,10 @@ results.each do |result|
     # image_caption: result.dig("primaryImage", "caption", "plainText")
   )
 end
+
+# 
+# url_random = "https://moviesdatabase.p.rapidapi.com/titles/random"
+# titles_random = URI.parse(url_random).read
+# title = JSON.parse(titles_random)
+# 
+# puts title
